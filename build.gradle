@@ -24,6 +24,8 @@ repositories {
 
 
 dependencies {
+	compile 'org.slf4j:slf4j-site:1.8.0-beta0'
+	compile ('org.lable.rfc3881.auditlogger.adapter:slf4j:1.6')
 	compile ('org.asciidoctor:asciidoctorj:1.6.0-alpha.6')
 	compile('org.springframework.boot:spring-boot-starter')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
