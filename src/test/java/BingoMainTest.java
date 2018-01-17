@@ -7,7 +7,7 @@ public class BingoMainTest {
 
     @Test
     public void testCreateDirectory() {
-        File directory = BingoMain.createDirectory();
+        File directory = FileMaker.createDirectory();
         assert directory.exists();
         assert directory.isDirectory();
         assertReadWriteAccess(directory);
@@ -15,7 +15,7 @@ public class BingoMainTest {
 
     @Test
     public void testCreateFile() {
-        File file = BingoMain.createFileUnderDirectory(BingoMain.createDirectory());
+        File file = FileMaker.createFileUnderDirectory(FileMaker.createDirectory());
         assert file.exists();
         assert file.isFile();
         assertReadWriteAccess(file);
