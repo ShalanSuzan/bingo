@@ -5,3 +5,5 @@ A family entertainment game, replace traditional
 Easy, cheap and you can play it any time. 
 
 This app will help you to create the game templates. 
+
+Still under development =)
