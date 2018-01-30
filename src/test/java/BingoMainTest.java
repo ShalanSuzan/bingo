@@ -1,4 +1,3 @@
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
@@ -7,7 +6,8 @@ public class BingoMainTest {
 
     @Test
     public void testCreateDirectory() {
-        File directory = FileMaker.createDirectory();
+        FileMaker fileMaker = new FileMaker("counter", "test.txt");
+        File directory = fileMaker.createDirectory();
         assert directory.exists();
         assert directory.isDirectory();
         assertReadWriteAccess(directory);
@@ -15,7 +15,9 @@ public class BingoMainTest {
 
     @Test
     public void testCreateFile() {
-        File file = FileMaker.createFileUnderDirectory(FileMaker.createDirectory());
+        FileMaker fileMaker = new FileMaker("counters", "test2.txt");
+        fileMaker.createDirectory();
+        File file = fileMaker.createFileUnderDirectory();
         assert file.exists();
         assert file.isFile();
         assertReadWriteAccess(file);

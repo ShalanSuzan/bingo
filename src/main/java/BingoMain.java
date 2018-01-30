@@ -1,14 +1,19 @@
-import org.jruby.util.log.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
-import java.io.File;
-import java.io.IOException;
-
-public class BingoMain {
+@Slf4j
+public class BingoMain implements Runnable{
 
     public static void main(String [] args){
-        File dir = FileMaker.createDirectory();
-        FileMaker.createFileUnderDirectory(dir);
+       new BingoMain().run();
     }
 
-
+    @Override
+    public void run() {
+        log.debug("Welcome to Bingo game!");
+        FileMaker fileMaker = new FileMaker("counters","Bingo_counters.txt");
+        fileMaker.createDirectory();
+        FileWriter fileWriter = new FileWriter(fileMaker.createFileUnderDirectory());
+        fileWriter.generateCounters();
+        log.debug("We are done. Bye bye!");
+    }
 }
